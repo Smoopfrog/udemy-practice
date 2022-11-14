@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserForm from "./components/Users/UserForm";
-import Users from "./components/UsersList";
+import Users from "./components/Users/UsersList";
 
 function App() {
   const [users, setUsers] = useState([]);
