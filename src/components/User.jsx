@@ -1,8 +1,8 @@
 const User = (props) => {
   return (
-    <div>
-      <div>User</div>
-      <div>Age</div>
+    <div onClick={props.deleteUser}>
+      <div>{props.name}</div>
+      <div>{props.age}</div>
     </div>
   );
 };

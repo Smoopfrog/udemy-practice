@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
-import UserForm from './components/UserForm';
-import Users from './components/Users';
-
+import React, { useState } from "react";
+import UserForm from "./components/UserForm";
+import Users from "./components/Users";
 
 function App() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
 
-  const addNewUser = userObj => {
-    setUsers(prev => [ userObj, ...prev])
-  }
+  const addNewUser = (userObj) => {
+    setUsers((prev) => [userObj, ...prev]);
+  };
+
+  const deleteUser = () => {
+    console.log("delete");
+  };
 
   return (
     <div>
       <UserForm addNewUser={addNewUser} />
-      {users.length > 0 && <Users usersArray={users}/>}
+      {users.length > 0 && <Users usersArray={users} deleteUser={deleteUser} />}
     </div>
   );
 }

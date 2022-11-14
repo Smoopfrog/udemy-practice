@@ -1,12 +1,12 @@
-import Card from "./Card"
-import User from "./User"
+import Card from "./Card";
+import User from "./User";
 
-const Users = () => {
-  return (
-    <Card>
-      <User />
-    </Card>
-  )
-}
+const Users = (props) => {
+  const userComponents = props.usersArray.map((user) => (
+    <User name={user.name} age={user.age} deleteUser={props.deleteUser} />
+  ));
 
-export default Users
+  return <Card>{userComponents}</Card>;
+};
+
+export default Users;
