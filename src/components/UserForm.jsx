@@ -13,17 +13,18 @@ const UserForm = () => {
     setUserAge(event.target.value);
   };
 
-  const newUserHandler = event => {
-    event.preventDefault()
+  const newUserHandler = (event) => {
+    event.preventDefault();
     const newUser = {
       name: userName,
-      age: userAge
-    }
+      age: userAge,
+    };
 
-    console.log('newUser', newUser)
-    setUserName('')
-    setUserAge('')
-  }
+    console.log("newUser", newUser);
+    setUserName("");
+    setUserAge("");
+  };
+  
   return (
     <Card>
       <form onSubmit={newUserHandler}>
