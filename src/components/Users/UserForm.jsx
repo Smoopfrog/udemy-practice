@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 const UserForm = (props) => {
   const [userName, setUserName] = useState("");
@@ -30,12 +30,18 @@ const UserForm = (props) => {
     <Card>
       <form onSubmit={newUserHandler}>
         <div>
-          <label>Name</label>
-          <input value={userName} onChange={userNameHandler}></input>
+          <label htmlFor="username">Name</label>
+          <input
+            id="username"
+            type="text"
+            value={userName}
+            onChange={userNameHandler}
+          />
         </div>
         <div>
-          <label>Age (Years)</label>
+          <label htmlFor="age">Age (Years)</label>
           <input
+            id="age"
             value={userAge}
             type="number"
             min="0"
