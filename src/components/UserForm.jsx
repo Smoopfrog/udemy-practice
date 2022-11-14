@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Card from "./Card";
 
-const UserForm = () => {
+const UserForm = (props) => {
   const [userName, setUserName] = useState("");
   const [userAge, setUserAge] = useState("");
 
@@ -20,11 +20,12 @@ const UserForm = () => {
       age: userAge,
     };
 
-    console.log("newUser", newUser);
+    props.addNewUser(newUser);
+
     setUserName("");
     setUserAge("");
   };
-  
+
   return (
     <Card>
       <form onSubmit={newUserHandler}>
