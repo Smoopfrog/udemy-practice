@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
+import ErrorModal from "../UI/ErrorModal";
 import styles from "./UserForm.module.css";
 const UserForm = (props) => {
   const [userName, setUserName] = useState("");
@@ -24,7 +25,7 @@ const UserForm = (props) => {
     if (+userAge < 1) {
       return;
     }
-    
+
     const newUser = {
       name: userName,
       age: userAge,
@@ -37,32 +38,35 @@ const UserForm = (props) => {
   };
 
   return (
-    <Card className={styles.input}>
-      <form onSubmit={newUserHandler}>
-        <div>
-          <label htmlFor="username">Name</label>
-          <input
-            id="username"
-            type="text"
-            value={userName}
-            onChange={userNameHandler}
-          />
-        </div>
-        <div>
-          <label htmlFor="age">Age (Years)</label>
-          <input
-            id="age"
-            value={userAge}
-            type="number"
-            min="0"
-            onChange={userAgeHandler}
-          ></input>
-        </div>
-        <Button onClick={newUserHandler} type={"submit"}>
-          Add User
-        </Button>
-      </form>
-    </Card>
+    <div>
+      <ErrorModal title="An error occured!" message="Something went wrong!" />
+      <Card className={styles.input}>
+        <form onSubmit={newUserHandler}>
+          <div>
+            <label htmlFor="username">Name</label>
+            <input
+              id="username"
+              type="text"
+              value={userName}
+              onChange={userNameHandler}
+            />
+          </div>
+          <div>
+            <label htmlFor="age">Age (Years)</label>
+            <input
+              id="age"
+              value={userAge}
+              type="number"
+              min="0"
+              onChange={userAgeHandler}
+            ></input>
+          </div>
+          <Button onClick={newUserHandler} type={"submit"}>
+            Add User
+          </Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 
