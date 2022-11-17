@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UserForm from "./components/Users/UserForm";
 import Users from "./components/Users/UsersList";
 
-function App() {
+const App = () => {
   const [users, setUsers] = useState([]);
 
   const addNewUser = (userObj) => {
@@ -19,6 +19,6 @@ function App() {
       {users.length > 0 && <Users usersArray={users} deleteUser={deleteUser} />}
     </div>
   );
-}
+};
 
 export default App;
